@@ -10,8 +10,9 @@ export default function Index() {
       <Text style = {style.text}>Tela de login</Text>
       <TextInput style={style.Input}
       placeholder="Insira seu nome"
-      
       />
+
+      <TextInput style={style.Input} secureTextEntry = {true} placeholder="Insira sua senha" />
        
 
     </View>
