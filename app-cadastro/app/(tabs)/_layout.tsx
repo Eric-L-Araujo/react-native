@@ -2,6 +2,11 @@ import { Tabs } from 'expo-router';
 import {Ionicons} from '@expo/vector-icons';
 import Entypo from '@expo/vector-icons/Entypo';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { LogBox } from 'react-native';
+
+
+// Código para ignorar avisos de erros.
+// LogBox.ignoreAllLogs(true);
 
 export default function TabLayout(){
     return (
@@ -53,6 +58,7 @@ export default function TabLayout(){
                 
                 }}  
             />
+            <Tabs.Screen name="+not-found" options = {{}} />
         </Tabs>
     )
 }

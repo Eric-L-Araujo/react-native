@@ -1,10 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+
 
 export default function AboutScreen() {
     return (
-        <View style = {style.viewContainer}>
-            <Text style = {style.text}>Login Screen</Text>
-        </View>
+        <SafeAreaProvider style = {style.viewContainer}>
+            <SafeAreaView>
+              <Text style = {style.text}>Login Screen</Text>
+            </SafeAreaView>
+        </SafeAreaProvider>
     );
 }
 

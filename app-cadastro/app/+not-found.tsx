@@ -8,6 +8,7 @@ export default function NotFoundScreen(){
     return (
         <View style = {style.viewContainer}>
             <Stack.Screen options={{title: 'Oopaa! Não encontrado'}} />
+            <Text style= {style.text}>Error 404: Página não encontrada</Text>
             <Link href="/" style = {style.button}>
             Voltar para a tela inicial
             </Link>
@@ -30,6 +31,5 @@ const style = StyleSheet.create ({
   button: {
     color: '#ffffffff',
     fontSize: 20,
-    textDecorationLine: 'underline',
-  }
+  },
 });
