@@ -9,7 +9,7 @@ export default function Index() {
       {/* <ImageComponent /> */}
       <Text style = {style.text}>Tela de login</Text>
       <TextInput style={style.Input}
-      placeholder="Insira seu nome de usuárioo"
+      placeholder="Insira seu nome"
       
       />
        
