@@ -1,18 +1,16 @@
 import { Text, View, StyleSheet } from "react-native";
 
+
 export default function Index() {
   return (
-    <View
-      style={ styles.container
-        
-      }
-    >
-      <Text style = {styles.text}>Tela Inicial</Text>
+    <View style={ style.container}>
+      <Text style={style.text}>Tela Inicial</Text>
+      
     </View>
   );
 }
 
-const styles = StyleSheet.create ({
+const style = StyleSheet.create ({
   container: {
     flex: 1,
     justifyContent: "center",
@@ -22,5 +20,11 @@ const styles = StyleSheet.create ({
 
   text: {
     color: '#fff',
+  },
+
+  button: {
+    color: '#ffffffff',
+    fontSize: 20,
+    textDecorationLine: 'underline',
   }
 })
