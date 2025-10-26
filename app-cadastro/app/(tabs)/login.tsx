@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import React, { useState } from 'react';
+import Button from '@/components/button';
 
 
 export default function AboutScreen() {
@@ -8,6 +10,7 @@ export default function AboutScreen() {
             <SafeAreaView>
               <Text style = {style.text}>Login Screen</Text>
             </SafeAreaView>
+            
         </SafeAreaProvider>
     );
 }
