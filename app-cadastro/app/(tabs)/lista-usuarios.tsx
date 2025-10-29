@@ -5,7 +5,7 @@ import {Ionicons} from '@expo/vector-icons';
 export default function AboutScreen() {
   return (
     <View style = {style.viewContainer}>
-      <Text style = {style.text}>About Screen</Text>
+      <Text style = {style.text}>Lista de usuários</Text>
     </View>
   );
 }

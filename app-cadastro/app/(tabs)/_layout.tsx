@@ -21,8 +21,15 @@ export default function TabLayout(){
                 headerTintColor: '#fff',
                 tabBarStyle: {
                 backgroundColor: '#25292e',
+                height: 100, // 🔹 Altura total da barra
                 
                 },
+                tabBarLabelStyle: {
+                fontSize: 14, // 🔹 Tamanho do texto
+                fontWeight: '600',
+                },
+
+                
                 
 
             }}

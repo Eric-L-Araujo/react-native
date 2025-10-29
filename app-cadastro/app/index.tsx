@@ -7,6 +7,7 @@ import Octicons from '@expo/vector-icons/Octicons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Swiper from 'react-native-swiper';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { Ionicons } from "@expo/vector-icons";
 
 
 export default function Index() {
@@ -60,9 +61,9 @@ export default function Index() {
               <Pressable
               style={style.buttonPrimary} >
               <Link href={'/login'} style={style.linkText}>
-                <Text>Prossiga</Text>
+                <Text>Login</Text>
               </Link>
-              <AntDesign name="arrow-right" size={30} color="#6f9ca6" style={style.buttonIcon}/>
+              <Ionicons name="arrow-forward" size={30} color="#6f9ca6" style={style.buttonIcon}/>
               </Pressable>
 
             </View>

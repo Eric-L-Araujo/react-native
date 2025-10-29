@@ -20,6 +20,10 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{headerShown: false}} />
         <Stack.Screen name="login" options={{headerShown: false}} />
         <Stack.Screen name="(tabs)" options={{headerShown: false}} />
+        <Stack.Screen name="registered" options={{headerShown: false}} />
+        <Stack.Screen name="registerName" options={{headerShown: false}} />
+        <Stack.Screen name="registerEmail" options={{headerShown: false}} />
+        <Stack.Screen name="registerPassword" options={{headerShown: false}} />
 
       </Stack>
     </>

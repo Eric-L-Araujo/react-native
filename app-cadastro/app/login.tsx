@@ -1,13 +1,22 @@
-import { StyleSheet, Text, View, TextInput} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Switch, Pressable} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
 import Button from '@/components/button';
 import BotaoCustomizado from "@/components/button";
 import Octicons from '@expo/vector-icons/Octicons';
-import {Link, LinkProps} from 'expo-router';
+import {Link} from 'expo-router';
 import { Image } from 'expo-image';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import Entypo from '@expo/vector-icons/Entypo';
+import InputEmail from '@/components/input-email';
+import InputSenha from '@/components/input-senha';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import BlueButton from '@/components/blueButton';
 
-export default function AboutScreen() {
+export default function LoginScreen() {
+
+  const [isChecked, setItChecked] = useState(false);
+
     return (
         <SafeAreaProvider style = {style.safeAreaContainer}>
            
@@ -15,29 +24,44 @@ export default function AboutScreen() {
 
             <Text style={style.titleText}>Login</Text>
 
-            <View style={style.inputGroup}>
-              <Text style={style.label}>Email:</Text>
-              <TextInput style={style.Input } placeholder="seuemail@email.com" />
+            <InputEmail label='E-mail'/>
+            <InputSenha label='Senha'/>
+
+
+
+            <View style={style.row}>
+              <Switch
+                value={isChecked}
+                onValueChange={setItChecked}
+                trackColor={{ false: "#afa9a9ff", true: "#14805cff" }}
+                thumbColor={isChecked ? '#B4CBD9' : '#B4CBD9'}
+                accessible= {true}
+                accessibilityLabel='Mantenha-me conectado'
+                accessibilityHint="Ativa ou desativa se manter conectado no app"
+                accessibilityState={{checked: isChecked}}
+              />
+
+                <Text style={style.text}>Lembrar meus dados</Text>
             </View>
 
-            <View style={style.inputGroup}>
-              <Text style={style.label}>Senha:</Text>
-              <TextInput style={style.Input} secureTextEntry = {true} placeholder="Sua senha entra aqui" />
-            </View>
-            <Link href="/lista-usuarios" style = {style.button}>
-              Login
+            <Text style={style.titleText}>Não possui conta?</Text>
+
+            <Link href={"/registerName"} asChild>
+              <BlueButton label='Registre-se' />
             </Link>
-          </SafeAreaView>
 
+
+            {/* <Link href={"/lista-usuarios"} asChild>
+              <BlueButton label='Entrar' />
+            </Link> */}
+
+          </SafeAreaView>
 
         </SafeAreaProvider>
     );
 }
 
 const style = StyleSheet.create ({
-  text: {
-    color: '#fff',
-  },
 
   safeAreaContainer: {
     flex: 1,
@@ -47,6 +71,13 @@ const style = StyleSheet.create ({
     height: '100%',
   },
   
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
+    justifyContent: 'center'
+  },
+
   areaViewContainer: {
     alignContent: 'center',
     alignItems: 'center',
@@ -55,42 +86,19 @@ const style = StyleSheet.create ({
     
   },
 
-  image: {
-    flex: 1,
-    justifyContent: 'center',
-    resizeMode: "cover",
-    width: '100%',
-    height: '100%',
-
-  },
-
   titleText: {
     color: '#fff',
     fontWeight: 600,
-    fontSize: 20,
-    margin: 20,
-
-  },
-  
-
-  comumText: {
-    color: '#fff',
-    fontWeight: 100,
-    fontSize: 20,
-    margin: 10,
-    textAlign: 'justify',
-    padding: 15,
+    fontSize: 22,
+    margin: 30,
 
   },
 
-  label: {
-    color: '#fff',
-    fontWeight: 100,
-    fontSize: 20,
-    margin: 2,
-    textAlign: 'left',
-    padding: 10,
-
+  text: {
+    fontSize: 18,
+    color: "#fff",
+    alignSelf: 'center',
+    marginBottom: 3,
   },
 
   button: {
@@ -102,24 +110,12 @@ const style = StyleSheet.create ({
     marginTop: 10,
   },
 
-  inputGroup: {
-    
+  buttonIcon: {
+    flexDirection: 'row',
+    margin: 0,
+    padding: 0,
+    paddingTop: 4,
+    paddingRight: 1,
   },
-
-  Input: {
-    width: 320,
-    height: 60,
-    color: '#000000ff',
-    backgroundColor: '#fff',
-    borderRadius: 14,
-    margin: 12,
-    padding: 10,
-    fontSize: 16,
-  },
-
-
-
-
-
 
 });
