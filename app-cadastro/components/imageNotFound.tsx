@@ -4,11 +4,9 @@ import {Image} from 'expo-image';
 
 const PlaceholderImage = require("@/assets/images/error404.png")
 
-export default function ImageComponent() {
+export default function ImageNotFound() {
   return (
-    <View style={style.imageContainer}>
     <Image source={PlaceholderImage} style={style.image} />
-    </View>
   );
 }
 
@@ -18,9 +16,9 @@ const style = StyleSheet.create ({
   },
 
   image: {
-    width: 320,
-    height: 440,
-    borderRadius: 18,
+    width: '100%',
+    height: 240,
+    resizeMode: 'contain',
   },
 
 })

@@ -3,7 +3,7 @@ import {Ionicons} from '@expo/vector-icons';
 import Entypo from '@expo/vector-icons/Entypo';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { LogBox } from 'react-native';
-
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 // Código para ignorar avisos de erros.
 // LogBox.ignoreAllLogs(true);
@@ -28,37 +28,15 @@ export default function TabLayout(){
             }}
         >
             <Tabs.Screen
-                name="index" 
+                name="lista-usuarios" 
                 options = {{
-                    title: 'Home',
+                    title: 'lista',
                     tabBarIcon: ({color, focused}) => (
-                        <Ionicons name={focused ? 'home-sharp' : 'home-outline'} color={color} size={24}  />
+                        <FontAwesome name="th-list" color={color} size={24} />
                         
                     ),
                 }} 
             />
-            <Tabs.Screen 
-                name="about" 
-                options = {{
-                    title: 'About',
-                    tabBarIcon: ({color}) => (
-                        <MaterialCommunityIcons name="dots-grid" size={24} color={color} />
-                        
-                    ),
-                
-                }}  
-            />
-            <Tabs.Screen 
-                name="login" 
-                options = {{
-                    title: 'Login',
-                    tabBarIcon: ({color}) => (
-                        <Entypo name="login" size={24} color={color} />
-                    ),
-                
-                }}  
-            />
-            <Tabs.Screen name="+not-found" options = {{}} />
         </Tabs>
     )
 }

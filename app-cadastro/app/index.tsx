@@ -1,66 +1,104 @@
-import { Text, View, StyleSheet, TextInput, ImageBackground } from "react-native";
+import { Text, View, StyleSheet, Pressable} from "react-native";
 import {Image} from 'expo-image';
-import {Link, LinkProps} from 'expo-router';
-import ImageComponent  from "@/components/imageViewer";
+import {Link} from 'expo-router';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import BotaoCustomizado from "@/components/button";
-const imagemFundo = require('@/assets/images/alex-montanha.jpg');
+import Octicons from '@expo/vector-icons/Octicons';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Swiper from 'react-native-swiper';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 
 export default function Index() {
   return (
-    // <View style={ style.viewContainer}>
-    //   {/* <ImageComponent /> */}
-    //   <Text style = {style.text}>Tela de login</Text>
-    //   <TextInput style={style.Input}
-    //   placeholder="Insira seu nome"
-    //   />
-
-    //   <TextInput style={style.Input} secureTextEntry = {true} placeholder="Insira sua senha" />
-    //    <Link href={"/(tabs)/about"}>
-    //    Ir para o about
-    //    </Link>
-
-    // </View>
-    
-    <SafeAreaProvider style={style.viewContainer}>
-      <ImageBackground source={imagemFundo} resizeMode="cover" style={style.image} >
-      <SafeAreaView style={[style.areaViewContainer, {shadowColor: '#000', shadowOffset: {width: 1, height: 2}, shadowOpacity: 0.3, shadowRadius: 2}]}>
-        <Text style={style.titleText}>Login</Text>
-        <TextInput style={[style.Input , {shadowColor: '#000', shadowOffset: {width: 1, height: 2}, shadowOpacity: 0.3, shadowRadius: 2,}]} placeholder="Seu nome vai aqui" />
-        <TextInput style={[style.Input , {shadowColor: '#000', shadowOffset: {width: 1, height: 2}, shadowOpacity: 0.3, shadowRadius: 2,}]} secureTextEntry = {true} placeholder="Sua senha entra aqui" />
-
-        <Link href={"/"} asChild>
+    <SafeAreaProvider>
+      <SafeAreaView style={style.safeAreaContainer}>
+        <Swiper
+        
+          loop={false}
+          showsPagination={true}
+          dotColor="#151f28"
           
-          <BotaoCustomizado title='Entre' onPress={()=> 'void'}/>
-        </Link>
+          activeDotColor="#6f9ca6"
+          paginationStyle={{
+            position: 'absolute',
+            bottom: 30,
+            left: 180,
+          }}
+
+          dotStyle={{
+            backgroundColor: '#151f28',
+            width: 10,
+            height: 10,
+            borderRadius: 5,
+            margin: 3,
+          }}
+
+          activeDotStyle={{
+            backgroundColor: '#6f9ca6',
+            width: 18,
+            height: 18,
+            borderRadius: 10,
+            margin: 10,
+          }}
+          
+          >
+     
+            <View style={style.viewContainer}>
+              
+              {/* <FontAwesome6 name="face-smile-beam" size={100} color="#6f9ca6" /> */}
+              <Image source={require('@/assets/images/keyicon.png')} style={style.image} />
+              <Text style={style.titleText}>Bem-vindo ao seu app!</Text>
+              <Text style={style.comumText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ut, quod ratione autem placeat illum.</Text>
+            </View>
+
+            <View style={style.viewContainer}>
+              <Image source={require('@/assets/images/real-estate-icon.png')} style={style.image} />
+              <Text style={style.titleText}>Tenha acesso à Lista de usuários</Text>
+              <Text style={style.comumText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ut, quod ratione autem placeat illum.</Text>
+
+              <Pressable
+              style={style.buttonPrimary} >
+              <Link href={'/login'} style={style.linkText}>
+                <Text>Prossiga</Text>
+              </Link>
+              <AntDesign name="arrow-right" size={30} color="#6f9ca6" style={style.buttonIcon}/>
+              </Pressable>
+
+            </View>
+        </Swiper>
       </SafeAreaView>
-      </ImageBackground>
+         
     </SafeAreaProvider>
   );
 }
 
 const style = StyleSheet.create ({
+  safeAreaContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: '#143F59',
+  },
+  
   viewContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: '#143F59',
   },
 
   image: {
-    flex: 1,
-    justifyContent: 'center',
+    width: '100%',
+    height: 140,
+    resizeMode: 'contain',
   },
 
   areaViewContainer: {
-     width: 340,
-    height: 450,
-    backgroundColor: '#0d25499d',
-    borderRadius: 18,
     alignContent: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 30,
+    margin: 'auto',
   },
 
   titleText: {
@@ -70,17 +108,44 @@ const style = StyleSheet.create ({
     margin: 20,
 
   },
-
-
-
-  button: {
-    color: '#ffffffff',
+  linkText: {
+    color: '#6f9ca6',
+    fontWeight: 100,
     fontSize: 18,
-    backgroundColor: 'rgba(24, 172, 152, 1)',
-    borderRadius: 10,
-    padding: 10,
-    marginTop: 10,
+    textAlign: 'justify',
+    marginRight: 12,
+    alignSelf: 'center',
+    padding: 0,
   },
+
+  comumText: {
+    color: '#fff',
+    fontWeight: 100,
+    fontSize: 20,
+    margin: 10,
+    textAlign: 'justify',
+    padding: 15,
+
+  },
+
+  buttonPrimary: {
+    width: '100%',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    flexDirection: 'row',
+    padding: 20,
+    marginRight: 20,
+    
+  },
+
+
+  buttonIcon: {
+    margin: 0,
+    padding: 0,
+    paddingTop: 4,
+    paddingRight: 9,
+  },
+
 
   Input: {
     width: '80%',
@@ -93,5 +158,8 @@ const style = StyleSheet.create ({
     textAlign: 'center',
     fontSize: 16,
 
-  }
+  },
+
+
+
 })

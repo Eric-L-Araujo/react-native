@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { Tabs } from 'expo-router';
+import {Ionicons} from '@expo/vector-icons';
 
 export default function AboutScreen() {
-    return (
-        <View style = {style.viewContainer}>
-            <Text style = {style.text}>About Screen</Text>
-        </View>
-    );
+  return (
+    <View style = {style.viewContainer}>
+      <Text style = {style.text}>About Screen</Text>
+    </View>
+  );
 }
 
 const style = StyleSheet.create ({

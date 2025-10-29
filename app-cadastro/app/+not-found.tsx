@@ -1,14 +1,14 @@
-import { Stack } from "expo-router";
-import { StackScreen } from "react-native-screens";
-import { Text, View, StyleSheet } from "react-native";
-import {Link , LinkProps} from 'expo-router';
-
+import { Link, Stack } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
+import FontAwesome from '@expo/vector-icons/FontAwesome';
+import ImageNotFound  from "@/components/imageNotFound";
 
 export default function NotFoundScreen(){
     return (
         <View style = {style.viewContainer}>
-            <Stack.Screen options={{title: 'Oopaa! Não encontrado'}} />
-            <Text style= {style.text}>Error 404: Página não encontrada</Text>
+          <Text style= {style.text}> Página não encontrada</Text>
+            <Stack.Screen options={{headerShown: false} } />
+            <ImageNotFound />
             <Link href="/" style = {style.button}>
             Voltar para a tela inicial
             </Link>
@@ -26,10 +26,13 @@ const style = StyleSheet.create ({
 
   text: {
     color: '#fff',
+    fontSize: 20,
   },
 
   button: {
-    color: '#ffffffff',
+    color: '#86b7f7ff',
     fontSize: 20,
+    
+    textDecorationLine: 'underline',
   },
 });
