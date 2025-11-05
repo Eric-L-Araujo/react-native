@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, TextInput} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
-import Button from '@/components/button';
-import BotaoCustomizado from "@/components/button";
+
 import Octicons from '@expo/vector-icons/Octicons';
 import {Link, LinkProps} from 'expo-router';
 import { Image } from 'expo-image';
@@ -13,21 +12,18 @@ type IconType = 'MaterialIcons' | 'Entypo' | 'Octicons';
 
 type Props = {
   label: string;
-  iconName?: string;
-  iconType?: IconType;
   onPress?: () => void;
-  onChangeText?: (text: string) => void;
+  onChangeText?: (text: string) => void,
   value?: string,
-    errorMessage?: string
+  errorMessage?: string,
+  onBlur?: ()=> void,
+  keyboardtype?: string
+
 };
 
-export default function InputEmail({label, onPress, onChangeText, iconName, iconType, value,  ...rest}: Props) {
+export default function InputEmail({label, onPress, onChangeText,  value,  ...rest}: Props) {
 
-    const IconComponent =
-     iconType === 'Entypo' ? Entypo :
-     iconType === 'Octicons' ? Octicons :
-     MaterialIcons;
-
+  
     return (
 
         
@@ -36,7 +32,7 @@ export default function InputEmail({label, onPress, onChangeText, iconName, icon
             <Text style={style.label}>{label}</Text>
 
             <View style={style.inputContainer}>
-                <MaterialIcons name={iconName as any} size={28} color="#143F59" style={style.icon} />
+                <MaterialIcons name='email' size={28} color="#143F59" style={style.icon} />
                 <TextInput value={value} style={style.input } placeholder="seuemail@email.com" placeholderTextColor={'#4e7791ff'} onPress={onPress} onChangeText={onChangeText} {...rest} />
             </View>
         </View>
@@ -67,8 +63,8 @@ const style = StyleSheet.create({
         borderRadius: 8,
         paddingHorizontal: 10,
         paddingVertical: 8,
-        marginBottom: 15,
         backgroundColor: "#D8E6F2",
+        marginBottom: 20,
     },
 
     

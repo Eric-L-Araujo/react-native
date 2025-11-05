@@ -1,17 +1,14 @@
-import { Text, View, StyleSheet, Pressable} from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity} from "react-native";
 import {Image} from 'expo-image';
-import {Link} from 'expo-router';
+import {useRouter} from 'expo-router';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import BotaoCustomizado from "@/components/button";
-import Octicons from '@expo/vector-icons/Octicons';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import Swiper from 'react-native-swiper';
-import AntDesign from '@expo/vector-icons/AntDesign';
-import { Ionicons } from "@expo/vector-icons";
-import BlueButton from "@/components/blueButton";
 
+import Swiper from 'react-native-swiper';
+
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Index() {
+  const router = useRouter()
   return (
     <SafeAreaProvider>
       <SafeAreaView style={style.safeAreaContainer}>
@@ -46,29 +43,24 @@ export default function Index() {
           
           >
      
-            <View style={style.viewContainer}>
-              
+            <View style={style.viewContainerSwiper1}>
               {/* <FontAwesome6 name="face-smile-beam" size={100} color="#6f9ca6" /> */}
               <Image source={require('@/assets/images/keyicon.png')} style={style.image} />
               <Text style={style.titleText}>Bem-vindo ao seu app!</Text>
-              <Text style={style.comumText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ut, quod ratione autem placeat illum.</Text>
-              <Link href={'/useState'}>
-              Ir para o teste
-              </Link>
+              <Text style={style.comumText}>Este app foi criado para facilitar o gerenciamento de usuários de forma simples e prática.</Text>
+            
             </View>
 
-            <View style={style.viewContainer}>
+            <View style={style.viewContainerSwiper2}>
               <Image source={require('@/assets/images/real-estate-icon.png')} style={style.image} />
               <Text style={style.titleText}>Tenha acesso à Lista de usuários</Text>
-              <Text style={style.comumText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ut, quod ratione autem placeat illum.</Text>
-
-              <Pressable
-              style={style.buttonPrimary} >
-              <Link href={'/login'} style={style.linkText}>
-                <Text>Login</Text>
-              </Link>
+              <Text style={style.comumText}>Após fazer login, você terá acesso à lista completa de usuários cadastrados. Pode adicionar novos, revisar os existentes e sair com segurança quando terminar. </Text>
+              
+              <TouchableOpacity activeOpacity={0.8}
+              style={style.buttonPrimary} onPress={()=> router.push('/login')} >
+              <Text style={style.linkText}>Faça login</Text>
               <Ionicons name="arrow-forward" size={30} color="#6f9ca6" style={style.buttonIcon}/>
-              </Pressable>
+              </TouchableOpacity>
 
             </View>
         </Swiper>
@@ -86,7 +78,15 @@ const style = StyleSheet.create ({
     backgroundColor: '#143F59',
   },
   
-  viewContainer: {
+  viewContainerSwiper1: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: '#143F59',
+    marginBottom: 109,
+  },
+
+  viewContainerSwiper2: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -134,13 +134,12 @@ const style = StyleSheet.create ({
   },
 
   buttonPrimary: {
-    width: '100%',
+    width: '90%',
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
     flexDirection: 'row',
-    padding: 20,
+    padding: 10,
     marginRight: 20,
-    
   },
 
 
@@ -148,7 +147,7 @@ const style = StyleSheet.create ({
     margin: 0,
     padding: 0,
     paddingTop: 4,
-    paddingRight: 9,
+    paddingRight: 10,
   },
 
 

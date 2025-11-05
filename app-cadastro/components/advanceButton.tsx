@@ -18,11 +18,6 @@ export default function AdvanceButton({label, ...useLinkProps}: AdvanceButtonPro
                 style.buttonPrimary, pressed && {opacity: 0.5}
             ]}>
                 <Text style={style.linkText}>{label}</Text>
-                {/* <AntDesign 
-                    name="arrow-right" 
-                    size={30} color="#6f9ca6" 
-                    style={style.buttonIcon}
-                    /> */}
                 <Ionicons name='chevron-forward-circle' size={30} color="#6f9ca6" style={style.buttonIcon} />
             </Pressable>
         </View>
@@ -73,5 +68,6 @@ const style = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ffffff',
     borderRadius: 20,
+    marginTop: 20,
   },
 })

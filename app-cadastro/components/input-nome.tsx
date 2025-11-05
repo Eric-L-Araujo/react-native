@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View, TextInput} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
-import Button from '@/components/button';
-import BotaoCustomizado from "@/components/button";
+
 import Octicons from '@expo/vector-icons/Octicons';
 import {Link, LinkProps} from 'expo-router';
 import { Image } from 'expo-image';
@@ -14,7 +13,8 @@ type Props = {
     onPress?: ()=> void,
     onChangeText?: (text: string)=> void,
     value?: string,
-    errorMessage?: string
+    errorMessage?: string,
+    onBlur?: ()=> void,
 }
 
 export default function InputNome({label, onPress, value, onChangeText,  ...rest}: Props) {
@@ -24,7 +24,7 @@ export default function InputNome({label, onPress, value, onChangeText,  ...rest
             <Text style={style.label}>{label}</Text>
 
             <View style={style.inputContainer}>
-                <Ionicons name="person-circle" size={28} color="#143F59" style={style.icon} />
+                <Ionicons  size={28} name='person-circle' color="#143F59" style={style.icon} />
                 <TextInput value={value} style={style.input } placeholder="Seu nome aqui" placeholderTextColor={'#4e7791ff'} onPress={onPress} {...rest} onChangeText={onChangeText} />
             </View>
         </View>

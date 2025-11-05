@@ -1,8 +1,6 @@
 import { StyleSheet, Text, View, TextInput} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
-import Button from '@/components/button';
-import BotaoCustomizado from "@/components/button";
 import Octicons from '@expo/vector-icons/Octicons';
 import {Link, LinkProps} from 'expo-router';
 import { Image } from 'expo-image';
@@ -12,9 +10,10 @@ import Entypo from '@expo/vector-icons/Entypo';
 type Props = {
     label: string,
     onPress?: ()=> void,
-    onChangeText?: (text: string) => void;
+    onChangeText?: (text: string) => void,
     value?: string,
-    errorMessage?: string
+    errorMessage?: string,
+    onBlur?: ()=> void,
 
 }
 
@@ -24,7 +23,7 @@ export default function InputSenha({label, onPress, onChangeText, value, ...rest
             <Text style={style.label}>{label}</Text>
 
             <View style={style.inputContainer}>
-                <Entypo name="lock" size={28} color="#143F59" style={style.icon} />
+                <Entypo size={28} color="#143F59" name='lock' style={style.icon} />
                 <TextInput value={value} style={style.input} secureTextEntry = {true} placeholder="Sua senha entra aqui" placeholderTextColor={'#4e7791ff'} onPress={onPress} onChangeText={onChangeText} {...rest}/>
             </View>
         </View>

@@ -1,18 +1,21 @@
-import { StyleSheet, Text, View, TextInput, Switch, Pressable, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Switch, Pressable, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {Link} from 'expo-router';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useLinkProps } from '@react-navigation/native';
-import { Ionicons
+import { Ionicons} from '@expo/vector-icons';
+import React, { use, useState } from 'react';
 
- } from '@expo/vector-icons';
+
 type BlueButtonProps = {
     label?: string,
     onPress?: () => void;
+    disabled?: any
 }
 
 
 export default function BlueButton({label, ...useLinkProps}: BlueButtonProps){
-
+    const [loading, setLoading] = useState(false);
+    
     return(
         <View>
             <Pressable {...useLinkProps}  style={({ pressed }) => [
@@ -25,6 +28,8 @@ export default function BlueButton({label, ...useLinkProps}: BlueButtonProps){
                     style={style.buttonIcon}
                     /> */}
                 <Ionicons name='person-add-outline' size={30} color="#6f9ca6" style={style.buttonIcon} />
+
+               
             </Pressable>
         </View>
 

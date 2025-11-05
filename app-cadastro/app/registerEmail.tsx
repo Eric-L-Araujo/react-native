@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Pressable} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable, Alert} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
 import {Link} from 'expo-router';
@@ -26,7 +26,66 @@ const clickBtn = ()=>{
 
 export default function RegisterEmailScreen() {
     
-      console.log('bunda')
+    // VALIDAÇÃO DO FORMULÁRIO
+
+    // ESTADOS DOS CAMPOS
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+
+    // ESTADOS DE ERRO
+    const [errorNome, setErrorNome] = useState("");
+    const [errorEmail, setErrorEmail] = useState("");
+    const [errorSenha, setErrorSenha] = useState("");
+
+    // FUNÇÃO PARA VALIDAR OS CAMPOS
+
+    const validarCampos = () => {
+      let valido = true;
+    
+    // RESETANDO MENSAGENS DE ERRO
+    setErrorNome("");
+    setErrorEmail("");
+    setErrorSenha("");
+    
+    // VALIDAÇÃO SIMPLES DO NOME
+      if (nome.trim() === "") {
+        setErrorNome("Por favor, nos informe seu nome.");
+        valido = false;
+      }
+
+    // VALIDAÇÃO SIMPLES DO E-MAIL
+     if (email.trim() === "") {
+      setErrorEmail("Por favor, preencha seu e-mail.");
+      valido = false;
+     } else if (!email.includes("@")) {
+      setErrorEmail("E-mail inválido.")
+      valido = false;
+     }
+
+    //  VALIDAÇÃO SIMPLES DA SENHA
+     if (senha.trim() === "") {
+      setErrorSenha("Por favor, preencha sua senha")
+      valido = false;
+     } else if (senha.length < 6) {
+      setErrorSenha("A senha deve ter pelo menos 6 caracteres")
+      valido = false;
+     }
+
+     if (valido) {
+      Alert.alert("Sucesso!", "Cadastro realizado com sucesso!")
+     }
+
+
+
+
+
+
+
+
+
+    }
+
     
     return (
             <SafeAreaProvider style = {style.safeAreaContainer}>
