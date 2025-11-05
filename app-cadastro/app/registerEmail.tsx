@@ -19,8 +19,15 @@ import BotaoCustomizado from "@/components/button";
 import BlueButton from '@/components/blueButton';
 import AdvanceButton from '@/components/advanceButton';
 
-export default function RegisterEmailScreen() {
+const clickBtn = ()=>{
 
+
+}
+
+export default function RegisterEmailScreen() {
+    
+      console.log('bunda')
+    
     return (
             <SafeAreaProvider style = {style.safeAreaContainer}>
                
@@ -28,7 +35,7 @@ export default function RegisterEmailScreen() {
                 {/* Inserir lógica para mostrar nome que o usuário digitar */}
                 <Text style={style.titleText}>{/*nome do usuário*/}</Text>
                 <Text style={style.titleText}>Agora, insira seu melhor e-mail</Text>
-                  <InputEmail label=''/>
+                  <InputEmail label='' onPress={clickBtn}  />
                   <Link href={"/registerPassword"} asChild>
                     <AdvanceButton label='avançar' />
                   </Link>

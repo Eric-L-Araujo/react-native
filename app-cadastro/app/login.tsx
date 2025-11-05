@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TextInput, Switch, Pressable} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import Button from '@/components/button';
 import BotaoCustomizado from "@/components/button";
 import Octicons from '@expo/vector-icons/Octicons';
@@ -16,6 +16,7 @@ import BlueButton from '@/components/blueButton';
 export default function LoginScreen() {
 
   const [isChecked, setItChecked] = useState(false);
+  const [text, setText] = useState('');
 
     return (
         <SafeAreaProvider style = {style.safeAreaContainer}>
@@ -43,6 +44,9 @@ export default function LoginScreen() {
 
                 <Text style={style.text}>Lembrar meus dados</Text>
             </View>
+            <Link href={"/lista-usuarios"} asChild>
+              <BlueButton label='Entrar' />
+            </Link>
 
             <Text style={style.titleText}>Não possui conta?</Text>
 

@@ -8,6 +8,7 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Swiper from 'react-native-swiper';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { Ionicons } from "@expo/vector-icons";
+import BlueButton from "@/components/blueButton";
 
 
 export default function Index() {
@@ -51,6 +52,9 @@ export default function Index() {
               <Image source={require('@/assets/images/keyicon.png')} style={style.image} />
               <Text style={style.titleText}>Bem-vindo ao seu app!</Text>
               <Text style={style.comumText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam ut, quod ratione autem placeat illum.</Text>
+              <Link href={'/useState'}>
+              Ir para o teste
+              </Link>
             </View>
 
             <View style={style.viewContainer}>

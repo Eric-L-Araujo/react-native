@@ -11,9 +11,13 @@ import Entypo from '@expo/vector-icons/Entypo';
 import { Ionicons } from '@expo/vector-icons';
 type Props = {
     label: string,
+    onPress?: ()=> void,
+    onChangeText?: (text: string)=> void,
+    value?: string,
+    errorMessage?: string
 }
 
-export default function InputNome({label}: Props) {
+export default function InputNome({label, onPress, value, onChangeText,  ...rest}: Props) {
     return (
         <View style={style.inputGroup}>
 
@@ -21,7 +25,7 @@ export default function InputNome({label}: Props) {
 
             <View style={style.inputContainer}>
                 <Ionicons name="person-circle" size={28} color="#143F59" style={style.icon} />
-                <TextInput style={style.input } placeholder="Seu nome aqui" placeholderTextColor={'#4e7791ff'}/>
+                <TextInput value={value} style={style.input } placeholder="Seu nome aqui" placeholderTextColor={'#4e7791ff'} onPress={onPress} {...rest} onChangeText={onChangeText} />
             </View>
         </View>
     );

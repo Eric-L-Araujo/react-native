@@ -30,7 +30,7 @@ export default function RegisterNameScreen() {
            
           <SafeAreaView style={style.areaViewContainer}>
             <Text style={style.titleText}>Primeiro, gostaríamos de saber seu nome</Text>
-              <InputNome label=''/>
+              <InputNome label='' />
               <Link href={"/registerEmail"} asChild>
                 <AdvanceButton label='avançar' />
               </Link>

@@ -37,7 +37,7 @@ export default function RegisterPasswordScreen() {
                 </Link>
             </View>
 
-            <InputSenha label=''/>
+            <InputSenha label=''  />
 
             <Link href={"/registered"} asChild>
             <AdvanceButton label='Cadastrar' />

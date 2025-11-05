@@ -9,19 +9,35 @@ import { Image } from 'expo-image';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Entypo from '@expo/vector-icons/Entypo';
 
-type Props = {
-    label: string,
-}
+type IconType = 'MaterialIcons' | 'Entypo' | 'Octicons';
 
-export default function InputEmail({label}: Props) {
+type Props = {
+  label: string;
+  iconName?: string;
+  iconType?: IconType;
+  onPress?: () => void;
+  onChangeText?: (text: string) => void;
+  value?: string,
+    errorMessage?: string
+};
+
+export default function InputEmail({label, onPress, onChangeText, iconName, iconType, value,  ...rest}: Props) {
+
+    const IconComponent =
+     iconType === 'Entypo' ? Entypo :
+     iconType === 'Octicons' ? Octicons :
+     MaterialIcons;
+
     return (
+
+        
         <View style={style.inputGroup}>
 
             <Text style={style.label}>{label}</Text>
 
             <View style={style.inputContainer}>
-                <MaterialIcons name="login" size={28} color="#143F59" style={style.icon} />
-                <TextInput style={style.input } placeholder="seuemail@email.com" placeholderTextColor={'#4e7791ff'}/>
+                <MaterialIcons name={iconName as any} size={28} color="#143F59" style={style.icon} />
+                <TextInput value={value} style={style.input } placeholder="seuemail@email.com" placeholderTextColor={'#4e7791ff'} onPress={onPress} onChangeText={onChangeText} {...rest} />
             </View>
         </View>
     );
