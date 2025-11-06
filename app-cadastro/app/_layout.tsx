@@ -13,14 +13,6 @@ export default function RootLayout() {
       <StatusBar style="light" />
         <UsersProvider>
           <Stack>
-          {/* <Stack
-            screenOptions={{
-                  headerBackVisible: false,
-          
-                }}
-          
-          > */}
-          
             <Stack.Screen name="index" options={{headerShown: false}} />
             <Stack.Screen name="login" options={{headerShown: false}} />
             <Stack.Screen name="(tabs)" options={{headerShown: false}} />
@@ -30,7 +22,7 @@ export default function RootLayout() {
             <Stack.Screen name="registerPassword" options={{headerShown: false}} />
             <Stack.Screen name="validacaoYup" options={{headerShown: false}} />
             <Stack.Screen name="validacaoSimples" options={{headerShown: false}} />
-                </Stack>
+          </Stack>
         </UsersProvider>
     </>
   )
